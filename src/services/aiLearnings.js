@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -6,7 +6,7 @@ dotenv.config();
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search";
 
-export const getLearningRecommendations = async (learningTitles) => {
+exports.getLearningRecommendations = async (learningTitles) => {
   try {
     const results = await Promise.all(
       learningTitles.map(async (query) => {

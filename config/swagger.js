@@ -1,5 +1,11 @@
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+const fs = require("fs");
+const yaml = require("js-yaml");
+
+const userGoals = yaml.load(fs.readFileSync("./docs/getUserGoals.yaml", "utf8"));
+const goalById = yaml.load(fs.readFileSync("./docs/getGoalById.yaml", "utf8"));
+const goalRecord = yaml.load(fs.readFileSync("./docs/postGoalRecord.yaml", "utf8"));
 
 const options = {
   definition: {
@@ -16,6 +22,7 @@ const options = {
       },
     ],
   },
+  paths: {...userGoals.paths, ...goalById.paths, ...goalRecord.paths},
   apis: ["./src/routes/*.js", "./swaggerDocs/*.js"], 
 };
 

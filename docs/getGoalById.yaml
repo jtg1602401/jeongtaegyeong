@@ -1,5 +1,5 @@
 paths:
-  /api/{userId}/{goalId}:
+  /api/goal/{userId}/{goalId}:
     get:
       summary: 특정 목표 상세 조회
       description: 특정 goalId에 해당하는 목표 정보를 가져옵니다.

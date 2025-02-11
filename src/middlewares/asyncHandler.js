@@ -8,4 +8,4 @@ const asyncHandler = (handler) => {
   };
 };
 
-module.exports = errorMiddleware;
+module.exports = asyncHandler;

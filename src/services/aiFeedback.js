@@ -1,5 +1,5 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import dotenv from "dotenv";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -9,7 +9,7 @@ const MODEL_NAME = "gemini-1.5-flash";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
-export const generateFeedback = async (content) => {
+exports.generateFeedback = async (content) => {
   console.log(content)
   const prompt = `
 사용자의 경험을 분석하여 한국어 제목과 피드백을 작성하고 키워드를 분석하세요.

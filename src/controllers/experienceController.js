@@ -1,16 +1,17 @@
-import pool from "../../config/db.js";
-import { generateFeedback } from '../services/aiFeedback.js';
-import { analyzeAiEmotionsAndFeedback } from '../services/aiEmotion.js';
-import { generateGrowth } from '../services/aiGrowth.js';
-import { getFeedbackData } from '../services/feedbackService.js';
-import { generateGoals } from '../services/aiGoals.js';
-import { getLearningRecommendations } from '../services/aiLearnings.js';
-import asyncHandler from "../middlewares/asyncHandler.js";
-import errorMiddleware from "../middlewares/errorMiddleware.js";
+const express = require("express");
+const pool = require("../../config/db.js");
+const { generateFeedback } = require('../services/aiFeedback.js');
+const { analyzeAiEmotionsAndFeedback } = require('../services/aiEmotion.js');
+const { generateGrowth } = require('../services/aiGrowth.js');
+const { getFeedbackData } = require('../services/feedbackService.js');
+const { generateGoals } = require('../services/aiGoals.js');
+const { getLearningRecommendations } = require('../services/aiLearnings.js');
+const asyncHandler = require("../middlewares/asyncHandler.js");
+const errorMiddleware = require("../middlewares/errorMiddleware.js");
 
 
 // 첫 화면, 날짜 선택
-export const saveDate = async (req, res, next) => {
+exports.saveDate = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { date } = req.body;
@@ -50,7 +51,7 @@ export const saveDate = async (req, res, next) => {
 
 
 // 두 번째 화면, 경험 기록 및 감정 선택
-export const createExperience = async (req, res, next) => {
+exports.createExperience = async (req, res, next) => {
   try {
     // content에 "" 가 있으면 오류 발생
     const { id } = req.params;
@@ -93,7 +94,7 @@ export const createExperience = async (req, res, next) => {
 };
 
 // 세 번째 화면, 경험 피드백 ~ 추천 학습 ai 분석 
-export const analyzeExperience = async (req, res, next) => {
+exports.analyzeExperience = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -158,7 +159,7 @@ export const analyzeExperience = async (req, res, next) => {
 
 
 // 4번째 화면, 저장된 피드백 불러오기
-export const getFeedback = async (req, res, next) => {
+exports.getFeedback = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -187,7 +188,7 @@ export const getFeedback = async (req, res, next) => {
 
 
 // 5번째 화면, 추천 목표와 추천 학습 불러오기
-export const getRecommendation = async (req, res, next) => {
+exports.getRecommendation = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -212,7 +213,7 @@ export const getRecommendation = async (req, res, next) => {
 
 
 // 추천 목표 저장
-export const saveGoal = async (req, res, next) => {
+exports.saveGoal = async (req, res, next) => {
   try {
     const { id } = req.params;
 

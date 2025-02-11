@@ -1,4 +1,4 @@
-import pool from "../../config/db.js";
+const pool = require("../../config/db.js");
 
 // 경험 피드백 조회
 export const getFeedbackData = async (id) => {

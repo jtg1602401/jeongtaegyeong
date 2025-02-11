@@ -1,6 +1,6 @@
-import express from "express";
-import asyncHandler from "../middlewares/asyncHandler.js";
-import { setGoal, friendGoal, updateGoal, deleteGoal } from "../controllers/goalController.js";
+const express = require("express");
+const asyncHandler = require("../middlewares/asyncHandler.js");
+const { setGoal, friendGoal, updateGoal, deleteGoal } = require("../controllers/goalController.js");
 
 const goalRouter = express.Router();
 
@@ -17,4 +17,4 @@ goalRouter.put('/:id/updateGoal', asyncHandler(updateGoal));
 goalRouter.delete('/:id/deleteGoal', asyncHandler(deleteGoal));
 
 
-export default goalRouter;
+module.exports = goalRouter;

@@ -1,6 +1,6 @@
-import pool from "../../config/db.js";
-import asyncHandler from "../middlewares/asyncHandler.js";
-import errorMiddleware from "../middlewares/errorMiddleware.js";
+const pool = require("../../config/db.js");
+const asyncHandler = require("../middlewares/asyncHandler.js");
+const errorMiddleware = require("../middlewares/errorMiddleware.js");
 
 
 // 한국 시간으로 변경
@@ -11,7 +11,7 @@ const koreanDate = (date) => {
 };
 
 // 목표 생성
-export const setGoal = async (req, res, next) => {
+exports.setGoal = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -71,7 +71,7 @@ export const setGoal = async (req, res, next) => {
 
 
 // 또래 목표 추천
-export const friendGoal = async (req, res, next) => {
+exports.friendGoal = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -123,7 +123,7 @@ export const friendGoal = async (req, res, next) => {
 
 
 // 목표 수정
-export const updateGoal = async (req, res, next) => {
+exports.updateGoal = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -176,7 +176,7 @@ export const updateGoal = async (req, res, next) => {
 };
 
 // 목표 삭제
-export const deleteGoal = async (req, res, next) => {
+exports.deleteGoal = async (req, res, next) => {
   try {
     const { id } = req.params;
 

@@ -1,6 +1,6 @@
-import express from "express";
-import asyncHandler from "../middlewares/asyncHandler.js";
-import { saveDate, createExperience, analyzeExperience, getFeedback, getRecommendation, saveGoal } from "../controllers/experienceController.js";
+const express = require("express");
+const asyncHandler = require("../middlewares/asyncHandler.js");
+const { saveDate, createExperience, analyzeExperience, getFeedback, getRecommendation, saveGoal } = require("../controllers/experienceController.js");
 
 const experienceRouter = express.Router();
 
@@ -22,4 +22,4 @@ experienceRouter.get('/:id/recommands', asyncHandler(getRecommendation));
 // 추천목표 저장하기 버튼, id는 goal id
 experienceRouter.put('/:id/save', asyncHandler(saveGoal));
 
-export default experienceRouter;
+module.exports = experienceRouter;

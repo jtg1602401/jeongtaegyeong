@@ -1,5 +1,5 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import dotenv from "dotenv";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -9,7 +9,7 @@ const MODEL_NAME = "gemini-1.5-flash";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
-export const generateGrowth = async (content) => {
+exports.generateGrowth = async (content) => {
   const prompt = `
 사용자의 경험을 분석하고 다음 정보를 JSON 형식으로 출력하세요.
 

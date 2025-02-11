@@ -1,12 +1,13 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import dotenv from "dotenv";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const dotenv = require("dotenv");
+
 
 dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-export const analyzeAiEmotionsAndFeedback = async (content) => {
+exports.analyzeAiEmotionsAndFeedback = async (content) => {
   const prompt = `
 사용자의 경험을 분석하고 감정 점수와 분석된 감정을 기반으로 피드백을 JSON 형식으로 출력하세요.  
 

@@ -31,9 +31,12 @@ exports.saveDate = async (req, res, next) => {
     let koreanDate;
     if (!date || date.trim() === "") {
       const now = new Date();
-      now.setUTCHours(now.getUTCHours() + 9); 
-      now.setHours(0, 0, 0, 0); 
-      koreanDate = now; 
+      const kstNow = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+      const year = kstNow.getUTCFullYear();
+      const month = String(kstNow.getUTCMonth() + 1).padStart(2, "0");
+      const day = String(kstNow.getUTCDate()).padStart(2, "0"); 
+
+      koreanDate = `${year}-${month}-${day}`; 
     } else {
       koreanDate = new Date(date); 
       koreanDate.setHours(0, 0, 0, 0); 

@@ -41,12 +41,14 @@ const getGoalById = async(req, res) => {
     const userId = req.params.userId;
     const goalId = req.params.goalId;
 
+    console.log("Received goalId:", goalId);  // goalId 값 출력
+
     pool.query("SELECT * FROM Goals WHERE goal_id = ?", [goalId], (err, result) => {
       if (err) {
         console.error("❌ MySQL 에러:", err);
         return res.status(504).send({ message: "DB 에러입니다." });
       }
-
+      console.log("Query result:", result);
       if (result.length === 0) {
         return res.status(404).send({ message: "해당 목표가 존재하지 않습니다." });
       }

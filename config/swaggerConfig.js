@@ -16,8 +16,8 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: "http://localhost:3000",
-      description: "로컬",
+      url: "https://gunanana.onrender.com",
+      description: "render배포",
     },
   ],
   paths: {...userGoals.paths, ...goalById.paths, ...goalRecord.paths},

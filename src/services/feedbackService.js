@@ -1,4 +1,4 @@
-const pool = require("../../config/db.js");
+const pool = require("../../config/db3.js");
 
 // 경험 피드백 조회
 exports.getFeedbackData = async (id) => {

@@ -1,4 +1,4 @@
-const pool = require("../../config/db.js");
+const pool = require("../../config/db3.js");
 const asyncHandler = require("../middlewares/asyncHandler.js");
 const errorMiddleware = require("../middlewares/errorMiddleware.js");
 

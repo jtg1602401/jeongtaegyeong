@@ -1,5 +1,5 @@
 const express = require("express");
-const pool = require("../../config/db.js");
+const pool = require("../../config/db3.js");
 const { generateFeedback } = require('../services/aiFeedback.js');
 const { analyzeAiEmotionsAndFeedback } = require('../services/aiEmotion.js');
 const { generateGrowth } = require('../services/aiGrowth.js');
